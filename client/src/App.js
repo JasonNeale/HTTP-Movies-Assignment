@@ -24,6 +24,10 @@ const App = () => {
     getMovieList();
   }, []);
 
+          
+    // Stretch
+    // Add a route at the path /add-movie
+    
   return (
     <>
       <SavedList list={savedList} />
@@ -35,6 +39,10 @@ const App = () => {
       <Route path="/movies/:id">
         <Movie addToSavedList={addToSavedList} />
       </Route>
+
+        <Route path="/update-movie/:id">
+            <Movie addToSavedList={addToSavedList} />
+          </Route>
     </>
   );
 };
