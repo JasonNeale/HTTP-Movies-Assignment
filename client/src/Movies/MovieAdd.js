@@ -1,6 +1,10 @@
+// External imports
 import React from 'react'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+
 
 const MovieAdd = () => {
+    
     return (
         <h1>Movie Add</h1>
         // Stretch

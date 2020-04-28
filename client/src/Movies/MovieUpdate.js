@@ -1,6 +1,10 @@
+// External imports
 import React from 'react'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+
 
 const MovieUpdate = () => {
+
     return (
         <h1>Movie Update</h1>
         // Create a component with a form to update the chosen movie
