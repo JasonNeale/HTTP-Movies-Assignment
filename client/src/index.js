@@ -5,6 +5,9 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 // Asset imports
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+
+// Local imports
 import App from './App'
 
 

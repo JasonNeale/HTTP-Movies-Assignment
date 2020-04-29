@@ -1,19 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
+import { Row } from 'reactstrap'
+
 
 function MovieList({ movies }) {
-  return (
-    <div className="movie-list">
-      {
-        movies.map(movie => (
-          <Link key={movie.id} to={`/movies/${movie.id}`}>
-            <MovieCard movie={movie} />
-          </Link>
-        ))
-      }
-    </div>
-  );
+    return (
+        <Row>
+        {
+            movies.map(movie => (
+                <MovieCard key={movie.id} movie={movie} />
+            ))
+        }
+        </Row>
+  )
 }
 
 export default MovieList;

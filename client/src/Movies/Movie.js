@@ -2,12 +2,14 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import { Button, Row, Col } from 'reactstrap'
 
 // Local imports
-import MovieCard from "./MovieCard"
+import MovieCard2 from "./MovieCard2"
 
 
 const Movie = ({ addToSavedList }) => {
+
     // {
     //     id: 5,
     //     title: 'Tombstone',
@@ -15,27 +17,43 @@ const Movie = ({ addToSavedList }) => {
     //     metascore: 89,
     //     stars: ['Kurt Russell', 'Bill Paxton', 'Sam Elliot'],
     // }
-    const [movie, setMovie] = useState(null)
+
+    const [ movie, setMovie ] = useState( null )
     const params = useParams()
 
-    const fetchMovie = (id) => {
+    const fetchMovie = ( id ) => {
         axios
             .get(`http://localhost:5000/api/movies/${id}`)
-            .then((res) => setMovie(res.data))
-            .catch((err) => console.log(err.response))
+            .then((res) => {
+                setMovie(res.data)
+                console.log( '[LOG] Axios Response (fetchMovie): ', res.response )
+            })
+            .catch(( err ) => console.log( '[LOG] Axios Error (fetchMovie): ', err.response ))
     }
 
-    const saveMovie = () => {addToSavedList(movie)}
+    // deleteMovie = event => {
+    //     event.preventDefault();
+    //     axios.delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
+    //       .then(res => {
+    //         console.log(res)
+    //         this.props.history.push('/');
+    //       })
+    //   }
 
-    useEffect(() => {fetchMovie(params.id)}, [params.id])
+    const saveMovie = () => {
+        addToSavedList(movie)
+    }
 
-    if (!movie) {return <div>Loading movie information...</div>}
+    useEffect(() => {
+        fetchMovie(params.id)
+    }, [params.id])
+
+    if (!movie) {
+        return <div>Loading movie information...</div>
+    }
 
     return (
-        <div className="save-wrapper">
-            <MovieCard movie={movie} />
-            <div className="save-button" onClick={saveMovie}>Save</div>
-        </div>
+        <MovieCard2 movie={movie} />
       
       // Add a button in the movie component that routes you to your new route with the movies's id as the URL param
       // Add a delete button in the movie component that makes a DELETE request

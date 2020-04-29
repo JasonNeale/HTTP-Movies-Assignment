@@ -9,6 +9,8 @@ import SavedList from "./Movies/SavedList"
 import MovieList from "./Movies/MovieList"
 import Movie from "./Movies/Movie"
 import MovieUpdate from './Movies/MovieUpdate'
+import NavMenu from './Movies/NavMenu'
+import MovieAdd from './Movies/MovieAdd'
 
 
 const App = () => {
@@ -36,10 +38,12 @@ const App = () => {
 
     return (
         <Container>
+            <NavMenu />
             <SavedList list={savedList} />
             <Route exact path="/"><MovieList movies={movieList} /></Route>
+            <Route exact path="/add-movie"><MovieAdd /></Route>
             <Route path="/movies/:id"><Movie addToSavedList={addToSavedList} /></Route>
-            <Route path="/update-movie/:id"><MovieUpdate /></Route>
+            <Route path="/update-movie/:id"><MovieUpdate addToSavedList={addToSavedList} /></Route>
         </Container>
     )
 }
