@@ -1,0 +1,39 @@
+.movie-card-col {
+    margin-bottom: 30px;
+}
+
+.movie-card-col:last-child {
+    margin-bottom: 0;
+}
+
+.movie-card {
+    padding: 20px;
+    height: 375px;
+    max-width: 350px;
+}
+
+.movie-card-button-row {
+    position:absolute;
+    bottom:0;
+    margin-bottom: 20px;
+}
+
+.movie-card-2-col {
+    margin-bottom: 30px;
+}
+
+.movie-card-2 {
+    padding: 20px;
+    height: auto;
+    width: 100%;
+}
+
+.movie-card-2-button-row {
+    position:absolute;
+    bottom:0;
+    margin-bottom: 20px;
+}
+
+ul li {
+    list-style: none;
+}
